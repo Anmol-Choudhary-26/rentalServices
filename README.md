@@ -9,6 +9,5 @@ Author:- Anmol Choudhary
 
 
 
-New contributor, Sanat Thakur
 =======
 >>>>>>> parent of aa4ee2c (Merge pull request #1 from Sanat2002/main)
