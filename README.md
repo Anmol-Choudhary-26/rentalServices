@@ -5,9 +5,9 @@ In this project we want to build a project which keeps track of rented cars and 
 in very simple yet efficient way.
 
 
-Author:- Anmol Choudhary
+Author:- <a href="https://github.com/Anmol-choudhary-spec">Anmol-Choudhary-spec</a>
 
-New contributor, Sanat Thakur
+New contributor - <a href="https://github.com/Sanat2002">Sanat Thakur</a>
 
 
 
