@@ -5,7 +5,6 @@ class login
 {
     map<string, string> oweners;
     map<string, string> customers;
-    map<string, string> :: iterator it;
 
 public:
     login()
@@ -69,7 +68,7 @@ public:
         getchar();
         getline(cin, reg_cust_name);
         getline(cin, reg_cust_pass);
-        customers.insert({reg_cust_name,reg_cust_pass});
+        customers.insert({reg_cust_name, reg_cust_pass});
         cout << "Successfully Registered\n";
     }
 };
@@ -81,7 +80,7 @@ int main()
     char l_or_r;
     string c_name, c_pass;
     string o_name, o_pass;
-    bool owener_logged_in=false,customer_logged_in=false;
+    bool owener_logged_in = false, customer_logged_in = false;
 
     while (true)
     {
@@ -100,7 +99,7 @@ int main()
             if (is_valid_owener)
             {
                 cout << "Owener Welcome to Rental Services\n";
-                owener_logged_in=true;
+                owener_logged_in = true;
             }
         }
         else if (person_type == 'c')
@@ -119,7 +118,7 @@ int main()
                 if (is_valid_customer)
                 {
                     cout << "Customer Welcome to Rental Services\n";
-                    customer_logged_in=true;
+                    customer_logged_in = true;
                 }
                 else
                 {
@@ -131,9 +130,13 @@ int main()
                     {
                         l.register_customer();
                     }
-                    else
+                    else if (want_reg == 'n')
                     {
                         cout << "Ok...\n";
+                    }
+                    else
+                    {
+                        cout << "Invalid Input\n";
                     }
                 }
             }
@@ -141,16 +144,25 @@ int main()
             {
                 l.register_customer();
             }
+            else
+            {
+                cout << "Invalid Input\n";
+            }
         }
-        else if(person_type=='e'){
+        else if (person_type == 'e')
+        {
             break;
         }
-
-        if(owener_logged_in){
-
+        else
+        {
+            cout << "Invalid Input\n";
         }
-        else if(customer_logged_in){
 
+        if (owener_logged_in)
+        {
+        }
+        else if (customer_logged_in)
+        {
         }
     }
     return 0;
