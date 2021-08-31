@@ -73,6 +73,93 @@ public:
     }
 };
 
+class Cab{
+
+public:
+map<string, int > availCab;
+map<string, int > CabPrice;
+public:
+Cab();
+void addCab(){
+  cout<<"Available cars \n\n";
+     for (auto const &pair: CabPrice) {
+        std::cout << ":-" << pair.first<< " , "<<pair.second<<"\n";
+    }
+    cout<<"\n\n";
+    tryagain:
+    cout<<"select 1 for adding a new Cab or select 0 for update  no. of existing car?\n";
+    int s;
+    cin>>s;
+    if(s==1){
+      cout<<"Enter Car name\n";
+      string carname;
+       getchar();
+      getline(cin, carname);
+      cout<<"Enter Number of cars you want to add\n";
+    int qw;
+    cin>>qw;
+    cout<<"Enter price of car\n";
+    int price;
+    cin>>price;
+     availCab.insert(pair<string, int>(carname, qw));
+      CabPrice.insert(pair<string, int>(carname, price));
+      cout<<"\n\nPrice of cabs\n\n";
+        for (auto const &pair: CabPrice) {
+        std::cout << ":-" << pair.first<< " , "<<pair.second<<"\n";
+    }
+     cout<<"\n\nNumber of cabs\n\n";
+      for (auto const &pair: availCab) {
+        std::cout << ":-" << pair.first<< " , "<<pair.second<<"\n";
+    }
+    }
+    else if(s==0){
+      cout<<"Enter name of car you want to update no. of cars\n";
+      string st="";
+      getchar();
+      getline(cin, st);
+      cout<<"Enter number of cars you want to add\n";
+      int gq;
+      cin>>gq;
+      std::map<string, int>::iterator it = availCab.find(st); 
+if (it != availCab.end())
+    it->second += gq;
+    cout<<"\n\n";
+
+       for (auto const &pair: CabPrice) {
+        std::cout << ":-" << pair.first<< " , "<<pair.second<<"\n";
+    }
+    }
+    else{
+      cout<<"please Enter valid input\n";
+        goto tryagain;
+    }
+   
+    
+}
+// void removeCab(){
+
+// }
+// void changeRate(){
+
+// }
+// void availCab(){
+
+// }
+
+};
+Cab::Cab(){
+   availCab.insert(pair<string, int>("Nano", 10));
+    availCab.insert(pair<string, int>("thar", 3));
+    availCab.insert(pair<string, int>("creta", 4));
+    availCab.insert(pair<string, int>("verna", 5));
+    availCab.insert(pair<string, int>("supra", 1));
+    CabPrice.insert(pair<string, int>("Nano", 1000));
+     CabPrice.insert(pair<string, int>("thar", 5000));
+     CabPrice.insert(pair<string, int>("creta", 4500));
+     CabPrice.insert(pair<string, int>("verna", 3000));
+     CabPrice.insert(pair<string, int>("supra", 45000));
+}
+
 int main()
 {
     login l;
