@@ -133,18 +133,90 @@ if (it != availCab.end())
       cout<<"please Enter valid input\n";
         goto tryagain;
     }
+    
+void removeCab(){
+  showavailCab();
+  yo:
+ cout<<"Enter 1 for removal of cab or enter 0 for change in no. of cab\n";
+ int ss;
+ cin>>ss;
+ if(ss==1){
+  cout<<"Enter name of car you want to remove\n";
+  string sf;
+  getchar();
+  getline(cin, sf);
+  availCab.erase(sf);
+  CabPrice.erase(sf);
+  cout<<"\n\n After removing cab\n\n";
+    showavailCab();
+    cout<<"\n\n";
+   showCabRate();
+
+ }
+ else if(ss==0){
+   cout<<"Enter name of car you want to remove\n";
+  string sfs;
+  getchar();
+  getline(cin, sfs);
+  trytry:
+  cout<<"Enter no. of cars you want to remove \n";
+  int as;
+  cin>>as;
+
+     std::map<string, int>::iterator it = availCab.find(sfs); 
+    if (it != availCab.end()){
+      if(it->second<as){
+       cout<<"please Enter valid input\n";
+goto trytry;
+     }
+     else{
+it->second -= as;
+     }
+ }
+ cout<<"After changing total no. of Cabs\n";
+  showavailCab();
+ }
+ else{
+   cout<<"Please Enter valid input\n";
+   goto yo;
+ }
+  
+}
+void changeRate(){
+cout<<"Rate of Cabs\n\n";
+ showCabRate();
+ cout<<"Enter name of Cab you want to change rate\n";
+ string ds;
+ getchar();
+ getline(cin, ds);
+ cout<<"Enter new price of Cab\n";
+ int pp;
+ cin>>pp;
+   std::map<string, int>::iterator it = CabPrice.find(ds); 
+if (it != CabPrice.end())
+    it->second += pp;
+    cout<<"Updated rates of cab\n";
+    showCabRate();
+}
+void RateAndAvail(){
+  showavailCab();
+  showCabRate();
+}
+void showavailCab(){
+for (auto const &pair: availCab) {
+        std::cout << ":-" << pair.first<< " , "<<pair.second<<"\n";
+    }
+}
+void showCabRate(){
+for (auto const &pair: CabPrice) {
+        std::cout << ":-" << pair.first<< " , "<<pair.second<<"\n";
+    }
+}
+
    
     
 }
-// void removeCab(){
 
-// }
-// void changeRate(){
-
-// }
-// void availCab(){
-
-// }
 
 };
 Cab::Cab(){
