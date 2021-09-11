@@ -238,7 +238,7 @@ public:
         }
         else
         {
-            cout << "This Cab is not booked...\n";
+            cout << "This Car is not booked...\n";
             return_booked_cab();
         }
     }
@@ -531,6 +531,8 @@ int main()
                 }
                 else if (owe_select_opt == 'l')
                 {
+                    cout<<"Successfully Logged out...\n";
+                    owener_logged_in=false;
                     break;
                 }
                 else
@@ -564,6 +566,8 @@ int main()
                 }
                 else if (cust_select_opt == 'l')
                 {
+                    cout<<"Successfully Logged out...\n";
+                    customer_logged_in=false;
                     break;
                 }
                 else
