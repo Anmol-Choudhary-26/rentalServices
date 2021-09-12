@@ -3,24 +3,24 @@ using namespace std;
 
 class login
 {
-    map<string, string> oweners;
+    map<string, string> owners;
     map<string, string> customers;
     map<string, string>::iterator it;
 
 public:
     login()
     {
-        oweners["Sanat Thakur"] = "1234";
-        oweners["Anmol Choudhary"] = "1234";
+        owners["Sanat Thakur"] = "1234";
+        owners["Anmol Choudhary"] = "1234";
         customers["Sed"] = "00";
         customers["Alex"] = "11";
     }
 
-    bool search_oweners(string o_name, string o_pass)
+    bool search_owners(string o_name, string o_pass)
     {
         bool o_found = false;
-        auto it = oweners.find(o_name);
-        if (it != oweners.end())
+        auto it = owners.find(o_name);
+        if (it != owners.end())
         {
             if (it->second == o_pass)
             {
@@ -34,7 +34,7 @@ public:
         }
         else
         {
-            cout << "Owener not found\n";
+            cout << "owner not found\n";
         }
         return o_found;
     }
@@ -217,7 +217,6 @@ public:
     {
         show_booked_cabs();
         cout << "Enter the name of the cab you want to return and  the price at which you booked in single line with space or to exit(exit)\n";
-        getchar();
         getline(cin, return_cab_name);
 
         auto it = cust_booked_cab.find(return_cab_name);
@@ -239,12 +238,13 @@ public:
         else
         {
             cout << "This Car is not booked...\n";
+            return_cab_name= "";
             return_booked_cab();
         }
     }
 };
 
-class owener : public Cab
+class owner : public Cab
 {
 public:
     void addCab()
@@ -421,19 +421,19 @@ public:
 
 int main()
 {
-    owener o;
+    owner o;
     customer c;
     login l;
     char person_type, cust_select_opt, owe_select_opt;
     char l_or_r;
     string c_name, c_pass;
     string o_name, o_pass;
-    bool owener_logged_in = false, customer_logged_in = false;
+    bool owner_logged_in = false, customer_logged_in = false;
 
     while (true)
     {
         cout << "Welcome to Rental Service Please login!!!\n"
-             << "Are you Owener or Customer(o/c)? or to exit(e)\n";
+             << "Are you owner or Customer(o/c)? or to exit(e)\n";
         cin >> person_type;
 
         if (person_type == 'o')
@@ -443,11 +443,11 @@ int main()
             getline(cin, o_name);
             getline(cin, o_pass);
 
-            bool is_valid_owener = l.search_oweners(o_name, o_pass);
-            if (is_valid_owener)
+            bool is_valid_owner = l.search_owners(o_name, o_pass);
+            if (is_valid_owner)
             {
-                cout << "Owener Welcome to Rental Services\n";
-                owener_logged_in = true;
+                cout << "owner Welcome to Rental Services\n";
+                owner_logged_in = true;
             }
         }
         else if (person_type == 'c')
@@ -506,7 +506,7 @@ int main()
             cout << "Invalid Input\n";
         }
 
-        if (owener_logged_in)
+        if (owner_logged_in)
         {
             while (true)
             {
@@ -532,7 +532,7 @@ int main()
                 else if (owe_select_opt == 'l')
                 {
                     cout<<"Successfully Logged out...\n";
-                    owener_logged_in=false;
+                    owner_logged_in=false;
                     break;
                 }
                 else
